@@ -1,0 +1,16 @@
+<section class="container">
+    <h1 class="text-center"> <img width="250" src="assets/logo.png" alt=""></h1>
+    <h5 class="text-center text-muted">Vous disposez de {{listDePokemon.length}} pokemon</h5>
+
+<div class="row">
+    <input #search (keyup)="filterPokemon(search.value)" type="search" class="form-control mb-4" placeholder="Rechercher un pokemon ...">
+    <!-- *ngFor="" permet de boucler sur un tableau -->
+    <div class="card col-md-3" *ngFor="let pokemon of listDePokemon" [routerLink]="['/single',pokemon.id]">
+        <div class="card-body mx-auto"> 
+            <!-- PROPERTY BINDING [src] permet a un attribut html d'accueillir une donné dynamique -->
+            <img [src]="pokemon.pictures" alt="">
+        </div>
+    </div>
+</div>
+
+</section>
